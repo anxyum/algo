@@ -37,7 +37,7 @@ console.log(maxDeuxNombres(5, 10)); // Résultat attendu : 10
 
 
 function difference(a, b) {
-  return a - b
+  return Math.max(a, b) - Math.min(a, b)
 }
 console.log(difference(10, 3)); // Résultat attendu : 7
 
