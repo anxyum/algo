@@ -67,7 +67,7 @@ console.log(getReduction(150, 25)); // Résultat attendu: 45
 // ex07.js
 
 function isNationalIDValid(name, age, zip, password) {
-	return (name !== "" && age >= 18 && age <= 65 && zip >= 0 && zip <= 99999 && password !== "qwerty" && password !== "azerty" && password !== "1234")
+	return name !== "" && age >= 18 && age <= 65 && zip >= 0 && zip <= 99999 && !["qwerty", "azerty", "1234"].includes(password)
 }
 
 console.log(isNationalIDValid("", 18, 69100, "hello")); // Résultat attendu: false
@@ -97,21 +97,21 @@ function encodePassword(password, encodeFunction) {
 }
 
 function encodeRot8(password) {
-	const lettres = "abcdefghijklmnopqrstuvwxyz"
+	const LETTERS = "abcdefghijklmnopqrstuvwxyz"
   var encodedPassword = ""
   
   for (let i = 0; i < password.length; i++) {
-    encodedPassword = encodedPassword + lettres[(lettres.indexOf(password[i])+8)%26]
+    encodedPassword = encodedPassword + LETTERS[(LETTERS.indexOf(password[i])+8)%26]
   }
   return encodedPassword
 }
 
 function encodeRot16(password) {
-	const lettres = "abcdefghijklmnopqrstuvwxyz"
+	const LETTERS = "abcdefghijklmnopqrstuvwxyz"
   var encodedPassword = ""
   
   for (let i = 0; i < password.length; i++) {
-    encodedPassword = encodedPassword + lettres[(lettres.indexOf(password[i])+16)%26]
+    encodedPassword = encodedPassword + LETTERS[(LETTERS.indexOf(password[i])+16)%26]
   }
   return encodedPassword
 }
